@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Main Wall Climbing Gym - Thailand's Premier Climbing Destination</title>
+    <meta name="description" content="Thailand's premier climbing destination in Chiang Mai's Old Town. 683 sqm of world-class climbing walls, air-conditioned comfort, expert instruction, and vibrant community.">
+    
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Animation Libraries -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/js/splide.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/css/splide.min.css" rel="stylesheet">
+    
+    <style>
+        :root {
+            --electric-blue: #0f42ec;
+            --sunset-yellow: #fae404;
+            --deep-navy: #07090f;
+            --light-blue: #bfceff;
+            --light-yellow: #fffbca;
+            --medium-gray: #6b7280;
+            --light-gray: #f9fafb;
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            color: var(--deep-navy);
+            background-color: white;
+        }
+        
+        .nav-blur {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(15, 66, 236, 0.1);
+        }
+        
+        .hero-bg {
+            background: linear-gradient(135deg, rgba(15, 66, 236, 0.15) 0%, rgba(250, 228, 4, 0.05) 100%);
+        }
+        
+        .text-electric { color: var(--electric-blue); }
+        .text-sunset { color: var(--sunset-yellow); }
+        .text-navy { color: var(--deep-navy); }
+        .bg-electric { background-color: var(--electric-blue); }
+        .bg-sunset { background-color: var(--sunset-yellow); }
+        .bg-light-blue { background-color: var(--light-blue); }
+        .bg-light-yellow { background-color: var(--light-yellow); }
+        
+        .btn-primary {
+            background-color: var(--electric-blue);
+            color: white;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(15, 66, 236, 0.3);
+            background-color: #0d3bd4;
+        }
+        
+        .btn-secondary {
+            background-color: var(--sunset-yellow);
+            color: var(--deep-navy);
+            transition: all 0.3s ease;
+        }
+        
+        .btn-secondary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(250, 228, 4, 0.3);
+            background-color: #e6d003;
+        }
+        
+        .card-hover {
+            transition: all 0.3s ease;
+        }
+        
+        .card-hover:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(15, 66, 236, 0.15);
+        }
+        
+        .facility-card {
+            background: white;
+            border: 1px solid var(--light-blue);
+            transition: all 0.3s ease;
+        }
+        
+        .facility-card:hover {
+            border-color: var(--electric-blue);
+            box-shadow: 0 15px 30px rgba(15, 66, 236, 0.1);
+        }
+        
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+        }
+        
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+            transition: all 0.6s ease;
+        }
+        
+        .hero-text-bg {
+            background: rgba(7, 9, 15, 0.6);
+            backdrop-filter: blur(10px);
+        }
+        
+        .section-divider {
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--light-blue), transparent);
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="fixed top-0 left-0 right-0 z-50 nav-blur">
+        <div class="max-w-7xl mx-auto px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <div class="flex items-center">
+                    <a href="index.html" class="text-2xl font-bold text-electric">Main Wall</a>
+                </div>
+                <div class="hidden md:flex space-x-8">
+                    <a href="#home" class="text-navy hover:text-electric font-medium transition-colors">Home</a>
+                    <a href="facilities.html" class="text-navy hover:text-electric font-medium transition-colors">Facilities</a>
+                    <a href="classes.html" class="text-navy hover:text-electric font-medium transition-colors">Classes</a>
+                    <a href="contact.html" class="text-navy hover:text-electric font-medium transition-colors">Contact</a>
+                </div>
+                <div class="md:hidden">
+                    <button id="mobile-menu-btn" class="text-navy hover:text-electric">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-light-blue">
+            <div class="px-6 py-4 space-y-4">
+                <a href="#home" class="block text-navy hover:text-electric font-medium">Home</a>
+                <a href="facilities.html" class="block text-navy hover:text-electric font-medium">Facilities</a>
+                <a href="classes.html" class="block text-navy hover:text-electric font-medium">Classes</a>
+                <a href="contact.html" class="block text-navy hover:text-electric font-medium">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="relative min-h-screen flex items-center justify-center overflow-hidden">
+        <div class="absolute inset-0 bg-cover bg-center bg-no-repeat" style="background-image: url('resources/hero-climbing-gym.png');"></div>
+        <div class="hero-bg absolute inset-0"></div>
+        
+        <div class="relative z-10 text-center px-6 lg:px-8 max-w-6xl mx-auto">
+            <div class="hero-text-bg rounded-3xl p-8 md:p-16 max-w-4xl mx-auto">
+                <h1 class="text-5xl md:text-7xl font-bold text-white mb-6 leading-tight">
+                    <span class="block fade-in">Thailand's Premier</span>
+                    <span class="block text-sunset fade-in">Climbing Destination</span>
+                </h1>
+                <p class="text-xl md:text-2xl text-gray-200 mb-8 max-w-2xl mx-auto fade-in font-medium">
+                    683 sqm of world-class climbing walls • Air-conditioned comfort • Expert instruction • Vibrant community
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4 justify-center fade-in">
+                    <button class="btn-primary px-8 py-4 rounded-xl font-semibold text-lg">
+                        Plan Your Visit
+                    </button>
+                    <button class="btn-secondary px-8 py-4 rounded-xl font-semibold text-lg">
+                        View Facilities
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="py-20 bg-light-gray">
+        <div class="max-w-7xl mx-auto px-6 lg:px-8">
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="text-center fade-in">
+                    <div class="w-20 h-20 bg-sunset rounded-full flex items-center justify-center mx-auto mb-6">
+                        <span class="text-3xl font-bold text-navy">4.8</span>
+                    </div>
+                    <h3 class="text-2xl font-semibold text-navy mb-2">Star Rating</h3>
+                    <p class="text-medium-gray">From 387+ reviews</p>
+                </div>
+                <div class="text-center fade-in">
+                    <div class="w-20 h-20 bg-electric-blue rounded-full flex items-center justify-center mx-auto mb-6">
+                        <span class="text-3xl font-bold text-white">683</span>
+                    </div>
+                    <h3 class="text-2xl font-semibold text-navy mb-2">Square Meters</h3>
+                    <p class="text-medium-gray">Premium climbing space</p>
+                </div>
+                <div class="text-center fade-in">
+                    <div class="w-20 h-20 bg-light-blue rounded-full flex items-center justify-center mx-auto mb-6">
+                        <span class="text-3xl font-bold text-electric">80+</span>
+                    </div>
+                    <h3 class="text-2xl font-semibold text-navy mb-2">Routes</h3>
+                    <p class="text-medium-gray">Regularly updated</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-6 lg:px-8">
+            <div class="text-center mb-16 fade-in">
+                <h2 class="text-4xl md:text-5xl font-bold text-navy mb-6">
+                    Experience <span class="text-sunset">World-Class</span> Climbing
+                </h2>
+                <p class="text-xl text-medium-gray max-w-3xl mx-auto leading-relaxed">
+                    Main Wall Climbing Gym offers an exceptional indoor climbing experience in the heart of Chiang Mai's Old Town. As the city's only air-conditioned climbing facility, we combine premium amenities with a welcoming community atmosphere.
+                </p>
+            </div>
+            
+            <div class="grid lg:grid-cols-2 gap-12 items-center">
+                <div class="fade-in">
+                    <img src="resources/facility-images/modern-interior-1.jpg" alt="Modern Climbing Interior" class="w-full h-80 object-cover rounded-2xl">
+                </div>
+                <div class="fade-in">
+                    <h3 class="text-3xl font-bold text-navy mb-6">Why Choose Main Wall?</h3>
+                    <div class="space-y-6">
+                        <div class="flex items-start space-x-4">
+                            <div class="w-8 h-8 bg-sunset rounded-lg flex items-center justify-center flex-shrink-0 mt-1">
+                                <svg class="w-5 h-5 text-navy" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                                </svg>
+                            </div>
+                            <div>
+                                <h4 class="text-lg font-semibold text-navy mb-2">Air-Conditioned Comfort</h4>
+                                <p class="text-medium-gray">The only climate-controlled climbing gym in Chiang Mai, ensuring comfortable climbing year-round.</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start space-x-4">
+                            <div class="w-8 h-8 bg-electric-blue rounded-lg flex items-center justify-center flex-shrink-0 mt-1">
+                                <svg class="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                                </svg>
+                            </div>
+                            <div>
+                                <h4 class="text-lg font-semibold text-navy mb-2">Expert Community</h4>
+                                <p class="text-medium-gray">Friendly, knowledgeable staff and a welcoming community of climbers from beginners to experts.</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start space-x-4">
+                            <div class="w-8 h-8 bg-light-blue rounded-lg flex items-center justify-center flex-shrink-0 mt-1">
+                                <svg class="w-5 h-5 text-electric" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                                </svg>
+                            </div>
+                            <div>
+                                <h4 class="text-lg font-semibold text-navy mb-2">Premium Facilities</h4>
+                                <p class="text-medium-gray">683 sqm of climbing space with top-rope, lead climbing, bouldering, and professional training equipment.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Interactive Facility Explorer -->
+    <section class="py-20 bg-light-gray">
+        <div class="max-w-7xl mx-auto px-6 lg:px-8">
+            <div class="text-center mb-16 fade-in">
+                <h2 class="text-4xl md:text-5xl font-bold text-navy mb-6">
+                    Explore Our <span class="text-sunset">Facilities</span>
+                </h2>
+                <p class="text-xl text-medium-gray max-w-2xl mx-auto">
+                    Discover our comprehensive climbing facilities designed for every skill level and climbing style.
+                </p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="facility-card card-hover rounded-2xl p-8 text-center fade-in">
+                    <div class="w-16 h-16 bg-electric-blue rounded-xl flex items-center justify-center mx-auto mb-6">
+                        <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-2xl font-semibold text-navy mb-4">Climbing Walls</h3>
+                    <p class="text-medium-gray mb-6">Top rope, lead climbing, and extensive bouldering areas with routes for all skill levels.</p>
+                    <ul class="text-sm text-medium-gray space-y-2">
+                        <li>• 15m high climbing walls</li>
+                        <li>• 200+ square meters bouldering</li>
+                        <li>• Two-story mezzanine</li>
+                    </ul>
+                </div>
+                
+                <div class="facility-card card-hover rounded-2xl p-8 text-center fade-in">
+                    <div class="w-16 h-16 bg-sunset rounded-xl flex items-center justify-center mx-auto mb-6">
+                        <svg class="w-8 h-8 text-navy" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-2xl font-semibold text-navy mb-4">Training Zone</h3>
+                    <p class="text-medium-gray mb-6">2016 Moonboard, spray wall, and comprehensive training equipment for strength building.</p>
+                    <ul class="text-sm text-medium-gray space-y-2">
+                        <li>• 2016 Moonboard</li>
+                        <li>• Campus board</li>
+                        <li>• Hangboard area</li>
+                    </ul>
+                </div>
+                
+                <div class="facility-card card-hover rounded-2xl p-8 text-center fade-in">
+                    <div class="w-16 h-16 bg-light-blue rounded-xl flex items-center justify-center mx-auto mb-6">
+                        <svg class="w-8 h-8 text-electric" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-2xl font-semibold text-navy mb-4">Gear Rental</h3>
+                    <p class="text-medium-gray mb-6">Professional climbing equipment rental for all your climbing needs.</p>
+                    <ul class="text-sm text-medium-gray space-y-2">
+                        <li>• Climbing shoes</li>
+                        <li>• Harnesses & belay devices</li>
+                        <li>• Chalk bags & chalk</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Community Testimonials -->
+    <section class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-6 lg:px-8">
+            <div class="text-center mb-16 fade-in">
+                <h2 class="text-4xl md:text-5xl font-bold text-navy mb-6">
+                    What Our <span class="text-sunset">Community</span> Says
+                </h2>
+                <p class="text-xl text-medium-gray max-w-2xl mx-auto">
+                    Hear from climbers who have made Main Wall their climbing home.
+                </p>
+            </div>
+            
+            <div class="splide" id="testimonial-slider">
+                <div class="splide__track">
+                    <ul class="splide__list">
+                        <li class="splide__slide">
+                            <div class="bg-light-gray rounded-2xl p-8 max-w-2xl mx-auto text-center">
+                                <div class="flex justify-center mb-6">
+                                    <div class="flex space-x-1">
+                                        <svg class="w-6 h-6 text-sunset fill-current" viewBox="0 0 20 20">
+                                            <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
+                                        </svg>
+                                        <svg class="w-6 h-6 text-sunset fill-current" viewBox="0 0 20 20">
+                                            <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
+                                        </svg>
+                                        <svg class="w-6 h-6 text-sunset fill-current" viewBox="0 0 20 20">
+                                            <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
+                                        </svg>
+                                        <svg class="w-6 h-6 text-sunset fill-current" viewBox="0 0 20 20">
+                                            <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
+                                        </svg>
+                                        <svg class="w-6 h-6 text-sunset fill-current" viewBox="0 0 20 20">
+                                            <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
+                                        </svg>
+                                    </div>
+                                </div>
+                                <p class="text-lg text-navy mb-6 italic">
+                                    "The best indoor climbing experience in Chiang Mai! The staff are incredibly friendly and helpful, the facilities are always clean, and the community vibe is amazing. Perfect for both beginners and experienced climbers."
+                                </p>
+                                <div class="flex items-center justify-center">
+                                    <div class="w-12 h-12 bg-sunset rounded-full flex items-center justify-center mr-4">
+                                        <span class="text-navy font-semibold">SM</span>
+                                    </div>
+                                    <div>
+                                        <p class="font-semibold text-navy">Sarah Mitchell</p>
+                                        <p class="text-medium-gray text-sm">Regular Climber</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="splide__slide">
+                            <div class="bg-light-gray rounded-2xl p-8 max-w-2xl mx-auto text-center">
+                                <div class="flex justify-center mb-6">
+                                    <div class="flex space-x-1">
+                                        <svg class="w-6 h-6 text-sunset fill-current" viewBox="0 0 20 20">
+                                            <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
+                                        </svg>
+                                        <svg class="w-6 h-6 text-sunset fill-current" viewBox="0 0 20 20">
+                                            <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
+                                        </svg>
+                                        <svg class="w-6 h-6 text-sunset fill-current" viewBox="0 0 20 20">
+                                            <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
+                                        </svg>
+                                        <svg class="w-6 h-6 text-sunset fill-current" viewBox="0 0 20 20">
+                                            <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
+                                        </svg>
+                                        <svg class="w-6 h-6 text-sunset fill-current" viewBox="0 0 20 20">
+                                            <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
+                                        </svg>
+                                    </div>
+                                </div>
+                                <p class="text-lg text-navy mb-6 italic">
+                                    "As a beginner, I was nervous about trying climbing, but the supportive community and excellent instruction at Main Wall made all the difference. The routes are well-set and the air-conditioning is a lifesaver in Chiang Mai!"
+                                </p>
+                                <div class="flex items-center justify-center">
+                                    <div class="w-12 h-12 bg-electric-blue rounded-full flex items-center justify-center mr-4">
+                                        <span class="text-white font-semibold">AL</span>
+                                    </div>
+                                    <div>
+                                        <p class="font-semibold text-navy">Alex Liu</p>
+                                        <p class="text-medium-gray text-sm">Beginner Climber</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Call to Action -->
+    <section class="py-20 bg-navy text-white">
+        <div class="max-w-4xl mx-auto text-center px-6 lg:px-8">
+            <h2 class="text-4xl md:text-5xl font-bold mb-6 fade-in">
+                Ready to Start Your <span class="text-sunset">Climbing Journey</span>?
+            </h2>
+            <p class="text-xl text-gray-300 mb-8 fade-in">
+                Join our community of climbers and experience the best indoor climbing in Chiang Mai.
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center fade-in">
+                <button class="bg-sunset text-navy px-8 py-4 rounded-xl font-semibold text-lg hover:bg-yellow-400 transition-colors">
+                    Book Your Visit
+                </button>
+                <a href="facilities.html" class="border-2 border-light-blue text-light-blue px-8 py-4 rounded-xl font-semibold text-lg hover:bg-light-blue hover:text-navy transition-all inline-block">
+                    View Facilities
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-light-gray py-12">
+        <div class="max-w-7xl mx-auto px-6 lg:px-8">
+            <div class="grid md:grid-cols-4 gap-8">
+                <div>
+                    <h3 class="text-2xl font-bold text-electric mb-4">Main Wall</h3>
+                    <p class="text-medium-gray mb-4">Thailand's premier climbing destination in Chiang Mai's Old Town.</p>
+                    <div class="flex space-x-4">
+                        <a href="https://instagram.com/mainwallcnx" class="text-medium-gray hover:text-electric transition-colors">
+                            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M12.017 0C5.396 0 .029 5.367.029 11.987c0 6.62 5.367 11.987 11.988 11.987c6.62 0 11.987-5.367 11.987-11.987C24.004 5.367 18.637.001 12.017.001zM8.449 16.988c-1.297 0-2.448-.49-3.323-1.297C4.198 14.895 3.708 13.744 3.708 12.447s.49-2.448 1.418-3.323c.875-.875 2.026-1.297 3.323-1.297s2.448.422 3.323 1.297c.928.875 1.418 2.026 1.418 3.323s-.49 2.448-1.418 3.244c-.875.807-2.026 1.297-3.323 1.297zm7.83-1.297c-.875.807-2.026 1.297-3.323 1.297s-2.448-.49-3.323-1.297c-.928-.875-1.418-2.026-1.418-3.323s.49-2.448 1.418-3.323c.875-.875 2.026-1.297 3.323-1.297s2.448.422 3.323 1.297c.928.875 1.418 2.026 1.418 3.323s-.49 2.448-1.418 3.244z"/>
+                            </svg>
+                        </a>
+                        <a href="https://facebook.com/mainwallclimbing" class="text-medium-gray hover:text-electric transition-colors">
+                            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+                <div>
+                    <h4 class="text-lg font-semibold text-navy mb-4">Quick Links</h4>
+                    <ul class="space-y-2 text-medium-gray">
+                        <li><a href="facilities.html" class="hover:text-electric transition-colors">Facilities</a></li>
+                        <li><a href="classes.html" class="hover:text-electric transition-colors">Classes</a></li>
+                        <li><a href="contact.html" class="hover:text-electric transition-colors">Contact</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-lg font-semibold text-navy mb-4">Contact Info</h4>
+                    <ul class="space-y-2 text-medium-gray">
+                        <li>181 Rachadamnoen Rd, Phra Sing</li>
+                        <li>Chiang Mai 50200, Thailand</li>
+                        <li>Phone: 061 324 2691</li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-lg font-semibold text-navy mb-4">Operating Hours</h4>
+                    <ul class="space-y-2 text-medium-gray">
+                        <li>Mon-Fri: 11 AM - 9 PM</li>
+                        <li>Sat-Sun: 9 AM - 8 PM</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="section-divider mt-8 mb-8"></div>
+            <div class="text-center text-medium-gray">
+                <p>&copy; 2024 Main Wall Climbing Gym. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="main.js"></script>
+</body>
+</html>
