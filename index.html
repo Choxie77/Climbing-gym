@@ -8,115 +8,17 @@
     
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-    
+
+    <!-- Unified Theme -->
+    <link rel="stylesheet" href="theme.css">
+
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
-    
+
     <!-- Animation Libraries -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/js/splide.min.js"></script>
     <link href="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/css/splide.min.css" rel="stylesheet">
-    
-    <style>
-        :root {
-            --electric-blue: #0f42ec;
-            --sunset-yellow: #fae404;
-            --deep-navy: #07090f;
-            --light-blue: #bfceff;
-            --light-yellow: #fffbca;
-            --medium-gray: #6b7280;
-            --light-gray: #f9fafb;
-        }
-        
-        body {
-            font-family: 'Inter', sans-serif;
-            color: var(--deep-navy);
-            background-color: white;
-        }
-        
-        .nav-blur {
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(20px);
-            border-bottom: 1px solid rgba(15, 66, 236, 0.1);
-        }
-        
-        .hero-bg {
-            background: linear-gradient(135deg, rgba(15, 66, 236, 0.15) 0%, rgba(250, 228, 4, 0.05) 100%);
-        }
-        
-        .text-electric { color: var(--electric-blue); }
-        .text-sunset { color: var(--sunset-yellow); }
-        .text-navy { color: var(--deep-navy); }
-        .bg-electric { background-color: var(--electric-blue); }
-        .bg-sunset { background-color: var(--sunset-yellow); }
-        .bg-light-blue { background-color: var(--light-blue); }
-        .bg-light-yellow { background-color: var(--light-yellow); }
-        
-        .btn-primary {
-            background-color: var(--electric-blue);
-            color: white;
-            transition: all 0.3s ease;
-        }
-        
-        .btn-primary:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 10px 25px rgba(15, 66, 236, 0.3);
-            background-color: #0d3bd4;
-        }
-        
-        .btn-secondary {
-            background-color: var(--sunset-yellow);
-            color: var(--deep-navy);
-            transition: all 0.3s ease;
-        }
-        
-        .btn-secondary:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 10px 25px rgba(250, 228, 4, 0.3);
-            background-color: #e6d003;
-        }
-        
-        .card-hover {
-            transition: all 0.3s ease;
-        }
-        
-        .card-hover:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 20px 40px rgba(15, 66, 236, 0.15);
-        }
-        
-        .facility-card {
-            background: white;
-            border: 1px solid var(--light-blue);
-            transition: all 0.3s ease;
-        }
-        
-        .facility-card:hover {
-            border-color: var(--electric-blue);
-            box-shadow: 0 15px 30px rgba(15, 66, 236, 0.1);
-        }
-        
-        .fade-in {
-            opacity: 0;
-            transform: translateY(30px);
-        }
-        
-        .fade-in.visible {
-            opacity: 1;
-            transform: translateY(0);
-            transition: all 0.6s ease;
-        }
-        
-        .hero-text-bg {
-            background: rgba(7, 9, 15, 0.6);
-            backdrop-filter: blur(10px);
-        }
-        
-        .section-divider {
-            height: 1px;
-            background: linear-gradient(90deg, transparent, var(--light-blue), transparent);
-        }
-    </style>
 </head>
 <body>
     <!-- Navigation -->

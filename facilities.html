@@ -8,90 +8,34 @@
     
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-    
+
+    <!-- Unified Theme -->
+    <link rel="stylesheet" href="theme.css">
+
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
-    
+
     <!-- Animation Libraries -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/echarts/5.4.3/echarts.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/matter-js/0.19.0/matter.min.js"></script>
-    
+
     <style>
-        :root {
-            --primary-dark: #1a365d;
-            --primary-light: #ffffff;
-            --accent-blue: #0f42ec;
-            --accent-yellow: #fae404;
-            --neutral-gray: #718096;
-            --neutral-light: #f7fafc;
-            --light-blue: #e6f3ff;
-            --light-yellow: #fffbeb;
-        }
-        
-        body {
-            font-family: 'Inter', sans-serif;
-            color: var(--primary-dark);
-            background-color: var(--primary-light);
-        }
-        
         .text-gradient {
-            background: linear-gradient(135deg, var(--accent-yellow) 0%, var(--accent-blue) 100%);
+            background: linear-gradient(135deg, var(--sunset-yellow) 0%, var(--electric-blue) 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
         }
-        
-        .btn-primary {
-            background: linear-gradient(135deg, var(--accent-blue) 0%, var(--accent-yellow) 100%);
-            transition: all 0.3s ease;
-        }
-        
-        .btn-primary:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 10px 25px rgba(34, 84, 61, 0.3);
-        }
-        
-        .facility-card {
-            transition: all 0.3s ease;
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(10px);
-        }
-        
-        .facility-card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 20px 40px rgba(45, 55, 72, 0.15);
-        }
-        
-        .nav-blur {
-            background: rgba(250, 250, 250, 0.95);
-            backdrop-filter: blur(20px);
-            border-bottom: 1px solid rgba(45, 55, 72, 0.1);
-        }
-        
-        .fade-in {
-            opacity: 0;
-            transform: translateY(30px);
-        }
-        
-        .fade-in.visible {
-            opacity: 1;
-            transform: translateY(0);
-            transition: all 0.6s ease;
-        }
-        
+
         .difficulty-chart {
             height: 300px;
         }
-        
+
         .equipment-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 2rem;
-        }
-        
-        .image-overlay {
-            background: linear-gradient(135deg, rgba(34, 84, 61, 0.8) 0%, rgba(44, 82, 130, 0.8) 100%);
         }
     </style>
 </head>
@@ -104,13 +48,13 @@
                     <a href="index.html" class="text-xl font-bold text-gradient">Main Wall</a>
                 </div>
                 <div class="hidden md:flex space-x-8">
-                    <a href="index.html" class="text-gray-700 hover:text-green-600 font-medium transition-colors">Home</a>
-                    <a href="#facilities" class="text-green-600 font-medium">Facilities</a>
-                    <a href="classes.html" class="text-gray-700 hover:text-green-600 font-medium transition-colors">Classes</a>
-                    <a href="contact.html" class="text-gray-700 hover:text-green-600 font-medium transition-colors">Contact</a>
+                    <a href="index.html" class="text-navy hover:text-electric font-medium transition-colors">Home</a>
+                    <a href="#facilities" class="text-electric font-medium active">Facilities</a>
+                    <a href="classes.html" class="text-navy hover:text-electric font-medium transition-colors">Classes</a>
+                    <a href="contact.html" class="text-navy hover:text-electric font-medium transition-colors">Contact</a>
                 </div>
                 <div class="md:hidden">
-                    <button id="mobile-menu-btn" class="text-gray-700 hover:text-green-600">
+                    <button id="mobile-menu-btn" class="text-navy hover:text-electric">
                         <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
                         </svg>
@@ -119,24 +63,24 @@
             </div>
         </div>
         <!-- Mobile Menu -->
-        <div id="mobile-menu" class="hidden md:hidden bg-white border-t">
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-light-blue">
             <div class="px-6 py-4 space-y-4">
-                <a href="index.html" class="block text-gray-700 hover:text-green-600 font-medium">Home</a>
-                <a href="#facilities" class="block text-green-600 font-medium">Facilities</a>
-                <a href="classes.html" class="block text-gray-700 hover:text-green-600 font-medium">Classes</a>
-                <a href="contact.html" class="block text-gray-700 hover:text-green-600 font-medium">Contact</a>
+                <a href="index.html" class="block text-navy hover:text-electric font-medium">Home</a>
+                <a href="#facilities" class="block text-electric font-medium">Facilities</a>
+                <a href="classes.html" class="block text-navy hover:text-electric font-medium">Classes</a>
+                <a href="contact.html" class="block text-navy hover:text-electric font-medium">Contact</a>
             </div>
         </div>
     </nav>
 
     <!-- Page Header -->
-    <section class="pt-24 pb-16 bg-gradient-to-r from-green-50 to-blue-50">
+    <section class="pt-24 pb-16 bg-light-gray">
         <div class="max-w-7xl mx-auto px-6 lg:px-8">
             <div class="text-center fade-in">
-                <h1 class="text-5xl md:text-6xl font-bold text-gray-900 mb-6">
+                <h1 class="text-5xl md:text-6xl font-bold text-navy mb-6">
                     Our <span class="text-gradient">Facilities</span>
                 </h1>
-                <p class="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
+                <p class="text-xl text-gray max-w-3xl mx-auto leading-relaxed">
                     Discover our comprehensive climbing facilities designed for every skill level. From beginner-friendly walls to advanced training equipment, we provide everything you need for an exceptional climbing experience.
                 </p>
             </div>
@@ -147,10 +91,10 @@
     <section id="facilities" class="py-20 bg-white">
         <div class="max-w-7xl mx-auto px-6 lg:px-8">
             <div class="text-center mb-16 fade-in">
-                <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+                <h2 class="text-4xl md:text-5xl font-bold text-navy mb-6">
                     Climbing <span class="text-gradient">Areas</span>
                 </h2>
-                <p class="text-xl text-gray-600 max-w-2xl mx-auto">
+                <p class="text-xl text-gray max-w-2xl mx-auto">
                     Multiple climbing zones designed for different styles and skill levels.
                 </p>
             </div>
@@ -164,25 +108,25 @@
                         </div>
                     </div>
                     <div class="space-y-4">
-                        <h3 class="text-2xl font-semibold text-gray-900">Rope Climbing Walls</h3>
-                        <p class="text-gray-600 leading-relaxed">
+                        <h3 class="text-2xl font-semibold text-navy">Rope Climbing Walls</h3>
+                        <p class="text-gray leading-relaxed">
                             Our main climbing area features 15-meter high walls with diverse route setting. From beginner-friendly top-rope routes to challenging lead climbing paths, we offer experiences for every climber.
                         </p>
-                        <ul class="space-y-2 text-gray-600">
+                        <ul class="space-y-2 text-gray">
                             <li class="flex items-center">
-                                <svg class="w-5 h-5 text-green-500 mr-3" fill="currentColor" viewBox="0 0 20 20">
+                                <svg class="w-5 h-5 text-electric mr-3" fill="currentColor" viewBox="0 0 20 20">
                                     <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
                                 </svg>
                                 15-meter high climbing walls
                             </li>
                             <li class="flex items-center">
-                                <svg class="w-5 h-5 text-green-500 mr-3" fill="currentColor" viewBox="0 0 20 20">
+                                <svg class="w-5 h-5 text-electric mr-3" fill="currentColor" viewBox="0 0 20 20">
                                     <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
                                 </svg>
                                 Top rope and lead climbing routes
                             </li>
                             <li class="flex items-center">
-                                <svg class="w-5 h-5 text-green-500 mr-3" fill="currentColor" viewBox="0 0 20 20">
+                                <svg class="w-5 h-5 text-electric mr-3" fill="currentColor" viewBox="0 0 20 20">
                                     <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
                                 </svg>
                                 Auto-belay systems for solo climbing
@@ -199,25 +143,25 @@
                         </div>
                     </div>
                     <div class="space-y-4">
-                        <h3 class="text-2xl font-semibold text-gray-900">Bouldering Zone</h3>
-                        <p class="text-gray-600 leading-relaxed">
+                        <h3 class="text-2xl font-semibold text-navy">Bouldering Zone</h3>
+                        <p class="text-gray leading-relaxed">
                             Our extensive bouldering area features over 200 square meters of climbing surface with problems ranging from beginner to advanced levels.
                         </p>
-                        <ul class="space-y-2 text-gray-600">
+                        <ul class="space-y-2 text-gray">
                             <li class="flex items-center">
-                                <svg class="w-5 h-5 text-green-500 mr-3" fill="currentColor" viewBox="0 0 20 20">
+                                <svg class="w-5 h-5 text-electric mr-3" fill="currentColor" viewBox="0 0 20 20">
                                     <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
                                 </svg>
                                 200+ square meters of bouldering
                             </li>
                             <li class="flex items-center">
-                                <svg class="w-5 h-5 text-green-500 mr-3" fill="currentColor" viewBox="0 0 20 20">
+                                <svg class="w-5 h-5 text-electric mr-3" fill="currentColor" viewBox="0 0 20 20">
                                     <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
                                 </svg>
                                 Two-story mezzanine for advanced routes
                             </li>
                             <li class="flex items-center">
-                                <svg class="w-5 h-5 text-green-500 mr-3" fill="currentColor" viewBox="0 0 20 20">
+                                <svg class="w-5 h-5 text-electric mr-3" fill="currentColor" viewBox="0 0 20 20">
                                     <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
                                 </svg>
                                 Crash pads and safety equipment
@@ -233,10 +177,10 @@
     <section class="py-20 bg-gray-50">
         <div class="max-w-7xl mx-auto px-6 lg:px-8">
             <div class="text-center mb-16 fade-in">
-                <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+                <h2 class="text-4xl md:text-5xl font-bold text-navy mb-6">
                     Route <span class="text-gradient">Distribution</span>
                 </h2>
-                <p class="text-xl text-gray-600 max-w-2xl mx-auto">
+                <p class="text-xl text-gray max-w-2xl mx-auto">
                     Interactive breakdown of our 80+ routes by difficulty level.
                 </p>
             </div>
@@ -251,80 +195,80 @@
     <section class="py-20 bg-white">
         <div class="max-w-7xl mx-auto px-6 lg:px-8">
             <div class="text-center mb-16 fade-in">
-                <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+                <h2 class="text-4xl md:text-5xl font-bold text-navy mb-6">
                     Training <span class="text-gradient">Zone</span>
                 </h2>
-                <p class="text-xl text-gray-600 max-w-2xl mx-auto">
+                <p class="text-xl text-gray max-w-2xl mx-auto">
                     Professional training equipment to build strength and improve your climbing performance.
                 </p>
             </div>
-            
+
             <div class="equipment-grid">
                 <div class="facility-card rounded-xl p-8 fade-in">
-                    <div class="w-16 h-16 bg-purple-100 rounded-lg flex items-center justify-center mx-auto mb-6">
-                        <svg class="w-8 h-8 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <div class="icon-container icon-blue mx-auto mb-6">
+                        <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"></path>
                         </svg>
                     </div>
                     <h3 class="text-2xl font-semibold text-center mb-4">2016 Moonboard</h3>
-                    <p class="text-gray-600 text-center mb-6">
+                    <p class="text-gray text-center mb-6">
                         The original Moonboard with a standardized 40-degree angle and LED system for training on the same problems as climbers worldwide.
                     </p>
-                    <ul class="text-sm text-gray-500 space-y-2">
+                    <ul class="text-sm text-gray space-y-2">
                         <li>• 40-degree overhang angle</li>
                         <li>• LED problem display system</li>
                         <li>• Standardized hold setup</li>
                         <li>• Access to global problem database</li>
                     </ul>
                 </div>
-                
+
                 <div class="facility-card rounded-xl p-8 fade-in">
-                    <div class="w-16 h-16 bg-orange-100 rounded-lg flex items-center justify-center mx-auto mb-6">
-                        <svg class="w-8 h-8 text-orange-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <div class="icon-container icon-yellow mx-auto mb-6">
+                        <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
                         </svg>
                     </div>
                     <h3 class="text-2xl font-semibold text-center mb-4">Campus Board</h3>
-                    <p class="text-gray-600 text-center mb-6">
+                    <p class="text-gray text-center mb-6">
                         Traditional campus board for power training and contact strength development.
                     </p>
-                    <ul class="text-sm text-gray-500 space-y-2">
+                    <ul class="text-sm text-gray space-y-2">
                         <li>• Multiple rung sizes</li>
                         <li>• Adjustable board angle</li>
                         <li>• Progressive difficulty levels</li>
                         <li>• Power and technique training</li>
                     </ul>
                 </div>
-                
+
                 <div class="facility-card rounded-xl p-8 fade-in">
-                    <div class="w-16 h-16 bg-green-100 rounded-lg flex items-center justify-center mx-auto mb-6">
-                        <svg class="w-8 h-8 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <div class="icon-container icon-electric mx-auto mb-6">
+                        <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path>
                         </svg>
                     </div>
                     <h3 class="text-2xl font-semibold text-center mb-4">Hangboard Area</h3>
-                    <p class="text-gray-600 text-center mb-6">
+                    <p class="text-gray text-center mb-6">
                         Multiple hangboards for finger strength training and injury prevention.
                     </p>
-                    <ul class="text-sm text-gray-500 space-y-2">
+                    <ul class="text-sm text-gray space-y-2">
                         <li>• Various grip types</li>
                         <li>• Different hold depths</li>
                         <li>• Finger strength progression</li>
                         <li>• Injury rehabilitation tools</li>
                     </ul>
                 </div>
-                
+
                 <div class="facility-card rounded-xl p-8 fade-in">
-                    <div class="w-16 h-16 bg-blue-100 rounded-lg flex items-center justify-center mx-auto mb-6">
-                        <svg class="w-8 h-8 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <div class="icon-container icon-blue mx-auto mb-6">
+                        <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"></path>
                         </svg>
                     </div>
                     <h3 class="text-2xl font-semibold text-center mb-4">Spray Wall</h3>
-                    <p class="text-gray-600 text-center mb-6">
+                    <p class="text-gray text-center mb-6">
                         Large overhanging wall with random holds for creative problem solving and endurance training.
                     </p>
-                    <ul class="text-sm text-gray-500 space-y-2">
+                    <ul class="text-sm text-gray space-y-2">
                         <li>• 30-degree overhang</li>
                         <li>• Random hold placement</li>
                         <li>• Endurance training</li>
@@ -339,14 +283,14 @@
     <section class="py-20 bg-gray-50">
         <div class="max-w-7xl mx-auto px-6 lg:px-8">
             <div class="text-center mb-16 fade-in">
-                <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+                <h2 class="text-4xl md:text-5xl font-bold text-navy mb-6">
                     Equipment & <span class="text-gradient">Amenities</span>
                 </h2>
-                <p class="text-xl text-gray-600 max-w-2xl mx-auto">
+                <p class="text-xl text-gray max-w-2xl mx-auto">
                     Everything you need for a comfortable and safe climbing experience.
                 </p>
             </div>
-            
+
             <div class="grid lg:grid-cols-2 gap-12">
                 <div class="fade-in">
                     <div class="relative rounded-xl overflow-hidden mb-6">
@@ -356,31 +300,31 @@
                         </div>
                     </div>
                     <div class="space-y-4">
-                        <h3 class="text-2xl font-semibold text-gray-900">Professional Equipment</h3>
-                        <p class="text-gray-600 leading-relaxed">
+                        <h3 class="text-2xl font-semibold text-navy">Professional Equipment</h3>
+                        <p class="text-gray leading-relaxed">
                             High-quality climbing gear available for rent, including shoes, harnesses, and safety equipment.
                         </p>
                         <div class="grid grid-cols-2 gap-4">
-                            <div class="bg-white p-4 rounded-lg">
-                                <h4 class="font-semibold text-gray-900 mb-2">Climbing Shoes</h4>
-                                <p class="text-sm text-gray-600">Various sizes and styles available</p>
+                            <div class="bg-white p-4 rounded-lg border border-light-blue">
+                                <h4 class="font-semibold text-navy mb-2">Climbing Shoes</h4>
+                                <p class="text-sm text-gray">Various sizes and styles available</p>
                             </div>
-                            <div class="bg-white p-4 rounded-lg">
-                                <h4 class="font-semibold text-gray-900 mb-2">Harnesses</h4>
-                                <p class="text-sm text-gray-600">Comfortable and safety-certified</p>
+                            <div class="bg-white p-4 rounded-lg border border-light-blue">
+                                <h4 class="font-semibold text-navy mb-2">Harnesses</h4>
+                                <p class="text-sm text-gray">Comfortable and safety-certified</p>
                             </div>
-                            <div class="bg-white p-4 rounded-lg">
-                                <h4 class="font-semibold text-gray-900 mb-2">Belay Devices</h4>
-                                <p class="text-sm text-gray-600">ATC and assisted braking devices</p>
+                            <div class="bg-white p-4 rounded-lg border border-light-blue">
+                                <h4 class="font-semibold text-navy mb-2">Belay Devices</h4>
+                                <p class="text-sm text-gray">ATC and assisted braking devices</p>
                             </div>
-                            <div class="bg-white p-4 rounded-lg">
-                                <h4 class="font-semibold text-gray-900 mb-2">Chalk & Chalk Bags</h4>
-                                <p class="text-sm text-gray-600">Liquid and powdered chalk options</p>
+                            <div class="bg-white p-4 rounded-lg border border-light-blue">
+                                <h4 class="font-semibold text-navy mb-2">Chalk & Chalk Bags</h4>
+                                <p class="text-sm text-gray">Liquid and powdered chalk options</p>
                             </div>
                         </div>
                     </div>
                 </div>
-                
+
                 <div class="fade-in">
                     <div class="relative rounded-xl overflow-hidden mb-6">
                         <img src="resources/facility-images/modern-interior-1.jpg" alt="Modern Facilities" class="w-full h-64 object-cover">
@@ -389,37 +333,37 @@
                         </div>
                     </div>
                     <div class="space-y-4">
-                        <h3 class="text-2xl font-semibold text-gray-900">Comfort & Safety</h3>
-                        <p class="text-gray-600 leading-relaxed">
+                        <h3 class="text-2xl font-semibold text-navy">Comfort & Safety</h3>
+                        <p class="text-gray leading-relaxed">
                             Modern amenities ensuring a comfortable and safe climbing environment for all visitors.
                         </p>
                         <ul class="space-y-3">
                             <li class="flex items-center">
-                                <svg class="w-6 h-6 text-green-500 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <svg class="w-6 h-6 text-electric mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
                                 </svg>
                                 <span>Full air-conditioning system</span>
                             </li>
                             <li class="flex items-center">
-                                <svg class="w-6 h-6 text-green-500 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <svg class="w-6 h-6 text-electric mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
                                 </svg>
                                 <span>Clean air filtration system</span>
                             </li>
                             <li class="flex items-center">
-                                <svg class="w-6 h-6 text-green-500 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <svg class="w-6 h-6 text-electric mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
                                 </svg>
                                 <span>Weight limit: up to 120kg</span>
                             </li>
                             <li class="flex items-center">
-                                <svg class="w-6 h-6 text-green-500 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <svg class="w-6 h-6 text-electric mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
                                 </svg>
                                 <span>Family-friendly environment</span>
                             </li>
                             <li class="flex items-center">
-                                <svg class="w-6 h-6 text-green-500 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <svg class="w-6 h-6 text-electric mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
                                 </svg>
                                 <span>All ages welcome</span>
@@ -432,19 +376,19 @@
     </section>
 
     <!-- Call to Action -->
-    <section class="py-20 bg-gradient-to-r from-green-600 to-blue-600">
+    <section class="py-20 bg-navy">
         <div class="max-w-4xl mx-auto text-center px-6 lg:px-8">
             <h2 class="text-4xl md:text-5xl font-bold text-white mb-6 fade-in">
-                Ready to Experience Our <span class="text-yellow-300">Facilities</span>?
+                Ready to Experience Our <span class="text-sunset">Facilities</span>?
             </h2>
-            <p class="text-xl text-gray-200 mb-8 fade-in">
+            <p class="text-xl text-gray-300 mb-8 fade-in">
                 Book your visit today and discover why we're Chiang Mai's premier climbing destination.
             </p>
             <div class="flex flex-col sm:flex-row gap-4 justify-center fade-in">
-                <button class="bg-white text-green-600 px-8 py-4 rounded-lg font-semibold text-lg hover:bg-gray-100 transition-colors">
+                <button class="btn-secondary px-8 py-4 rounded-xl font-semibold text-lg">
                     Plan Your Visit
                 </button>
-                <a href="classes.html" class="border-2 border-white text-white px-8 py-4 rounded-lg font-semibold text-lg hover:bg-white hover:text-green-600 transition-all inline-block">
+                <a href="classes.html" class="border-2 border-light-blue text-light-blue px-8 py-4 rounded-xl font-semibold text-lg hover:bg-light-blue hover:text-navy transition-all inline-block">
                     View Classes
                 </a>
             </div>
@@ -598,22 +542,22 @@
                             {
                                 value: 25,
                                 name: 'Beginner (5.6-5.8)',
-                                itemStyle: { color: '#48BB78' }
+                                itemStyle: { color: '#0f42ec' }
                             },
                             {
                                 value: 35,
                                 name: 'Intermediate (5.9-5.11)',
-                                itemStyle: { color: '#4299E1' }
+                                itemStyle: { color: '#bfceff' }
                             },
                             {
                                 value: 15,
                                 name: 'Advanced (5.12-5.13)',
-                                itemStyle: { color: '#ED8936' }
+                                itemStyle: { color: '#fae404' }
                             },
                             {
                                 value: 5,
                                 name: 'Expert (5.14+)',
-                                itemStyle: { color: '#9F7AEA' }
+                                itemStyle: { color: '#07090f' }
                             }
                         ]
                     }
